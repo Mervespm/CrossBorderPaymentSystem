@@ -12,6 +12,9 @@ Projede, farklı bankalar arasında yapılan işlemler için bir ağ oluşturulm
 
 Bu projeyi yerel bir geliştirme ortamında çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
 
+Gereksinimler
+   - Docker yüklü olmalıdır.
+   - Node.js ve npm yüklü olmalıdır.
 
 ### Terminal Komutları
 
@@ -59,7 +62,7 @@ node enrollAdmin.js org2
 ```bash
 node app.js
 ```
-Hata almadıysanız, keşif arayüzü `http://localhost:3030` adresinden erişilebilir olacaktır.
+Hata almadıysanız, keşif arayüzü `http://localhost:3000` adresinden erişilebilir olacaktır.
 
 ### Keşif (Explorer) Ayarları
 
