@@ -1,4 +1,17 @@
-## Adım Adım Yönergeler
+# Cross Border Payment
+
+Cross Border Payment, Hyperledger tabanlı özel bir blok zinciri uygulamasıdır. Bu proje, sınır ötesi ödemelerin takibini ve işlenmesini kolaylaştırmayı amaçlar.
+
+## Proje Açıklaması
+
+Bu proje, Hyperledger çerçevesi üzerinde geliştirilmiş bir blok zinciri uygulamasıdır.
+Sınır ötesi ödemelerin izlenmesi, onaylanması ve işlenmesi için kullanılan akıllı sözleşmeleri içerir.
+Projede, farklı bankalar arasında yapılan işlemler için bir ağ oluşturulmuş ve ödeme süreçlerinin şeffaf bir şekilde takip edilmesi sağlanmıştır.
+
+## Kurulum
+
+Bu projeyi yerel bir geliştirme ortamında çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
 
 ### Terminal Komutları
 
