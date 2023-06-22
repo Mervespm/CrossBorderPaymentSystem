@@ -62,6 +62,9 @@ node app.js
 ```
 If there are no errors, the explorer interface will be accessible at `http://localhost:3000`.
 
+![Bank and Customer LogIn/SignUp Page](images/mainpage.png)
+
+
 ### Explorer Configuration
 
 1. Modify the necessary files for the explorer:
