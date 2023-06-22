@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body,
+    html {
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 300px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .title {
+      color: #800;
+      font-weight: bold;
+      padding-top: 2rem;
+      text-align: center;
+      padding-bottom: 2em;
+    }
+
+    .separator {
+      border-left: 4px solid rgba(0, 0, 0, 0.2);
+      height: 600px;
+      margin: 0 10px;
+    }
+  </style>
+  <h1 class="title">Bank Page</h1>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="container">
+      <h1 class="mt-4" style="font-weight: bold;">Bank LogIn</h1>
+      <hr />
+      <% if (typeof error !=='undefined' && error==='invalid_credentials' ) { %>
+        <div class="alert alert-danger">Invalid username or password. Please try again.</div>
+        <% } %>
+
+          <form action="/loginBank" method="POST">
+            <div class="form-group">
+              <label for="bankadminID">Bank Admin ID:</label>
+              <input type="text" class="form-control" name="bankadminID" required>
+            </div>
+            <div class="form-group">
+              <label for="bankID">Bank ID:</label>
+              <input type="text" class="form-control" name="bankID" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+            <br>
+          </form>
+    </div>
+    <div class="separator"></div>
+    <div class="container">
+      <h1 class="mt-4" style="font-weight: bold;">Bank SignUp</h1>
+      <hr />
+      <% if (typeof error !=='undefined' && error==='invalid_user' ) { %>
+        <div class="alert alert-danger">Invalid admin.</div>
+        <% } %>
+      <form action="/createBank" method="POST">
+        <div class="form-group">
+          <label for="bankadminID">Bank Admin ID:</label>
+          <input type="text" class="form-control" name="bankadminID" required>
+        </div>
+        <div class="form-group">
+          <label for="bankID">Bank ID:</label>
+          <input type="text" class="form-control" name="bankID" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Bank Name:</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input type="text" class="form-control" name="country" required>
+        </div>
+        <div class="form-group">
+          <label for="currency">Currency:</label>
+          <input type="text" class="form-control" name="currency" required pattern="^[A-Z]{3}$"
+            title="Please enter in standart format (EUR, USD ...)">
+        </div>
+
+        <div class="form-group">
+          <label for="reserves">Reserves:</label>
+          <input type="number" class="form-control" name="reserves" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Bank</button>
+        <br>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </div>
+</body>
+
+</html>

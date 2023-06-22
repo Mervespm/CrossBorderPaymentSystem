@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Delete Account</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .error-message {
+      color: red;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var accountID = document.getElementById("accountID").value;
+
+      if (accountID.length < 10) {
+        setTimeout(function () {
+          document.getElementById("AccountError").innerHTML = " ";
+        }, 700);
+        document.getElementById("AccountError").innerText = "Account ID not found!";
+        return false;
+      } else {
+        document.getElementById("AccountError").innerText = "";
+      }
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Delete Account</h1>
+    <p>Confirm to delete the account by filling out the form below.</p>
+    <form method="POST" action="/deleteAccount">
+      <div class="form-group">
+        <label for="customerID">Customer ID:</label>
+        <input type="text" class="form-control" id="customerID" name="customerID" placeholder="Müşteri ID'sini girin"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="accountID">Account ID:</label>
+        <input type="text" class="form-control" id="accountID" name="accountID" placeholder="Hesap ID'sini girin"
+          required>
+        <p id="AccountError" class="error-message"></p>
+      </div>
+      <div class="form-group">
+        <label for="confirmation">Are you sure you want to delete the account? Type "YES" to confirm:</label>
+        <input type="text" class="form-control" id="confirmation" name="confirmation" required>
+      </div>
+      <button type="submit" class="btn btn-danger">Delete Account</button>
+    </form>
+  </div>
+  <% if (errorMessage) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= errorMessage %>
+    </div>
+    <% } %>
+</body>
+
+</html>

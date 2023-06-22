@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Deposite/Withdraw Money</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Deposite/Withdraw Money</h1>
+    <form method="POST" action="/updateBalance">
+      <div class="form-group">
+        <label for="accountID">Account ID:</label>
+        <input type="text class=" form-control" id="accountID" name="accountID" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" class="form-control" id="amount" name="amount" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="/customerHome" class="btn btn-secondary">Back</a>
+  </div>
+</body>
+
+</html>

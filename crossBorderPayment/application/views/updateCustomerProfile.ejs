@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <% if (success) { %>
+      <div class="alert alert-success" role="alert">
+        Profile successfully updated.
+      </div>
+      <% } else { %>
+        <div class="alert alert-danger" role="alert">
+          Profile update failed. Error: <%= error %>
+        </div>
+        <% } %>
+          <a href="/customerHome" class="btn btn-primary">Main Page</a>
+  </div>
+</body>
+
+</html>

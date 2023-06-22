@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Customer Info</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="bankInfoContainer" class="container">
+    <h1 style="font-weight: bold; padding-top: 1rem;  color: darkslateblue;">Customer Info</h1>
+    <hr />
+    <div class="card mt-4">
+      <div class="card-body">
+        <p class="card-text"><strong>Customer ID:</strong>
+          <%= customer.customerID %>
+        </p>
+        <p class="card-text"><strong>Customer Name:</strong>
+          <%= customer.name %>
+        </p>
+        <p class="card-text"><strong>Customer Surname:</strong>
+          <%= customer.surname %>
+        </p>
+        <p class="card-text"><strong>Account ID's:</strong>
+          <%= customer.accountIDs.join(', ') %></p>
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Send Money</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .error-message {
+      color: red;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var senderAccountID = document.getElementById("senderAccountID").value;
+      var receiverAccountID = document.getElementById("receiverAccountID").value;
+
+      if (senderAccountID.length < 10) {
+        setTimeout(function () {
+          document.getElementById("senderAccountError").innerHTML = " ";
+        }, 700);
+        document.getElementById("senderAccountError").innerText = "Sender Account ID not found!";
+        return false;
+      } else {
+        document.getElementById("senderAccountError").innerText = "";
+      }
+
+      if (receiverAccountID.length < 10) {
+        setTimeout(function () {
+          document.getElementById("senderAccountError").innerHTML = " ";
+        }, 700);
+        document.getElementById("receiverAccountError").innerText = "Recipient Account ID not found!";
+        return false;
+      } else {
+        document.getElementById("receiverAccountError").innerText = "";
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Send Money</h1>
+    <% if (errorMessage) { %>
+      <div class="alert alert-danger" role="alert">
+        <%= errorMessage %>
+      </div>
+      <% } %>
+        <form action="/transfer" method="POST" onsubmit="return validateForm()">
+          <div class="form-group">
+            <label for="senderAccountID">Sender Account ID:</label>
+            <input type="text" class="form-control" id="senderAccountID" name="senderAccountID"
+              placeholder="Enter the Sender Account ID" required>
+            <p id="senderAccountError" class="error-message"></p>
+          </div>
+          <div class="form-group">
+            <label for="receiverAccountID">Recipient Account ID:</label>
+            <input type="text" class="form-control" id="receiverAccountID" name="receiverAccountID"
+              placeholder="Enter the Recipient Account ID" required>
+            <p id="receiverAccountError" class="error-message"></p>
+          </div>
+          <div class="form-group">
+            <label for="senderCustomerID">Sender ID:</label>
+            <input type="text" class="form-control" id="senderCustomerID" name="senderCustomerID"
+              placeholder="Enter the Sender ID" required>
+          </div>
+          <div class="form-group">
+            <label for="receiverCustomerID">Recipient ID:</label>
+            <input type="text" class="form-control" id="receiverCustomerID" name="receiverCustomerID"
+              placeholder="Enter the Recipient ID" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="password">Verify Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder=""
+              required>
+            <p id="receiverAccountError" class="error-message"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Money</button>
+          <a href="/customerHome" class="btn btn-secondary">Main Page</a>
+        </form>
+  </div>
+
+</body>
+
+</html>

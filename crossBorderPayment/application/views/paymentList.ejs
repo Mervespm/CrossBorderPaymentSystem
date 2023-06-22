@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Account Activities</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Account Activities</h1>
+    <% if (typeof error !=='undefined' && error==='invalid_credentials' ) { %>
+      <div class="alert alert-danger">Invalid username!</div>
+      <% } %>
+        <% if (payments && payments.length> 0) { %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Recipient Account</th>
+                <th>Sending Account</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% payments.forEach((payment)=> { %>
+                <tr>
+                  <td>
+                    <%= payment.receiverAccountID %>
+                  </td>
+                  <td>
+                    <%= payment.senderAccountID %>
+                  </td>
+                  <td>
+                    <%= payment.amount %>
+                  </td>
+                  <td>
+                    <%= payment.date %>
+                  </td>
+                  <td>
+                    <%= payment.exchangeRate %>
+                  </td>
+
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <% } else { %>
+            <p>The customer's account activities could not found.</p>
+            <% } %>
+              <a href="/customerHome" class="btn btn-secondary">Main Page</a>
+  </div>
+</body>
+
+</html>

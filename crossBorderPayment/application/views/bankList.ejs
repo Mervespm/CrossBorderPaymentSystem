@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="bankInfoContainer" class="container">
+    <h1 style="font-weight: bold; padding-top: 1rem;  color: darkslateblue;">My Profile</h1>
+    <hr />
+    <div class="card mt-4">
+      <div class="card-body">
+        <p class="card-text"><strong>Bank Name:</strong>
+          <%= bank.name %>
+        </p>
+        <p class="card-text"><strong>Bank ID:</strong>
+          <%= bank.bankID %>
+        </p>
+        <p class="card-text"><strong>Bank Admin ID:</strong>
+          <%= bank.bankAdminID %>
+        </p>
+        <p class="card-text"><strong>Country:</strong>
+          <%= bank.country %>
+        </p>
+        <p class="card-text"><strong>Currency:</strong>
+          <%= bank.currency %>
+        </p>
+        <p class="card-text"><strong>Reserves:</strong>
+          <%= bank.reserves.toFixed(2) %>
+        </p>
+        <p class="card-text"><strong>Account ID's:</strong>
+          <%= bank.accountIDs.join(', ') %></p>
+        <p class="card-text"><strong>Exchange Rate in Dollars:</strong> <%= bank.exchangeRate.toFixed(2) %></p>
+      </div>
+    </div>
+  </div>
+    
+</body>
+</html>

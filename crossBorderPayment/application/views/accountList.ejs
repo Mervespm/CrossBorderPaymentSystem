@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Account List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .copyable {
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    .copyable::before {
+      content: attr(data-copyable);
+      display: none;
+      position: absolute;
+      padding: 5px;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .copyable:hover::before {
+      display: inline-block;
+    }
+  </style>
+  <script>
+    function copyTextToClipboard(text) {
+      const tempElement = document.createElement('textarea');
+      tempElement.value = text;
+      document.body.appendChild(tempElement);
+      tempElement.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempElement);
+      alert('Metin kopyalandı: ' + text);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 style="font-weight: bold; padding-top: 1rem;  color: darkslateblue;">Account List</h1>
+    <hr />
+    <% if (accounts && accounts.length> 0) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Account ID</th>
+            <th>Bank</th>
+            <th>Balance</th>
+            <th>Currency</th>
+            <th>Account Activities</th>
+            <th>Delete Account</th>
+            <th>Deposite/Withdraw Money</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% accounts.forEach((account)=> { %>
+            <tr>
+              <td class="copyable" data-copyable="<%= account.id %>"
+                onclick="copyTextToClipboard(this.getAttribute('data-copyable'));">
+                <%= account.id %>
+              </td>
+              <td>
+                <%= account.bankID %>
+              </td>
+              <td>
+                <%= account.balance %>
+              </td>
+              <td>
+                <%= account.currency %>
+              </td>
+              <td>
+                <div style="display: inline-block; margin-left: 10px;">
+                  <a href="/transfer/<%= account.id %>?customerID=<%= customerID %>&accountID=<%= account.id %>"
+                    class="btn btn-sm btn-primary">Go Account Activities</a>
+                </div>
+              </td>
+              <td>
+                <div style="display: inline-block; margin-left: 10px;">
+                  <a href="/deleteAccount" class="btn btn-sm btn-primary">Delete Account</a>
+                </div>
+              </td>
+              <td>
+                <div style="display: inline-block; margin-left: 10px;">
+                  <a href="/updateBalance" class="btn btn-sm btn-primary">Deposite/Withdraw Money</a>
+                </div>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <h5>Customer's accounts not found.</h5>
+        <br>
+        <% } %>
+          <a href="/transfer" class="btn btn-primary">Send Money</a>
+          <a href="/customerHome" class="btn btn-secondary">Home page</a>
+  </div>
+</body>
+
+</html>

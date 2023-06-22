@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <form action="/editCustomerProfile" method="post" onsubmit="return validatePassword()">
+      <div class="form-group">
+        <label for="customerName">Name:</label>
+        <input type="text" class="form-control" id="customerName" name="customerName" value="<%= customerName %>">
+      </div>
+      <div class="form-group">
+        <label for="customerSurname">Surname:</label>
+        <input type="text" class="form-control" id="customerSurname" name="customerSurname"
+          value="<%= customerSurname %>">
+      </div>
+      <div class="form-group">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" class="form-control" id="oldPassword" name="oldPassword">
+      </div>
+      <div class="form-group">
+        <label for="confirmation">New Password:</label>
+        <input type="password" class="form-control" id="confirmation">
+      </div>
+      <div class="form-group">
+        <label for="customerPassword">New Password:</label>
+        <input type="password" class="form-control" id="customerPassword" name="customerPassword"
+          value="<%= customerPassword %>">
+        <small class="text-danger" id="passwordError"></small>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="/customerHome" class="btn btn-secondary">Back</a>
+  </div>
+  <script>
+    function validatePassword() {
+      var newPassword = document.getElementById("customerPassword").value;
+      var confirmPassword = document.getElementById("confirmation").value;
+      var oldPassword = document.getElementById("oldPassword").value;
+      var passwordError = document.getElementById("passwordError");
+
+      if (newPassword === confirmPassword && oldPassword === "<%= customerPassword %>") {
+        passwordError.innerText = "";
+        return true;
+      }
+
+      if (newPassword !== confirmPassword) {
+        passwordError.innerText = "New Passwords Do Not Match.";
+
+      } if (oldPassword !== "<%= customerPassword %>") {
+        passwordError.innerText = "You Entered Old Password Wrong.";
+
+      }
+      return false;
+    }
+  </script>
+</body>
+
+</html>
