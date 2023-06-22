@@ -1,5 +1,4 @@
 
-```
 # Blockchain Based Cross Border Payment System
 
 Cross Border Payment is a private blockchain application based on Hyperledger. This project aims to facilitate the tracking and processing of cross-border payments.
