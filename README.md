@@ -1,17 +1,13 @@
-
-```
 ## Adım Adım Yönergeler
 
 ### Terminal Komutları
 
 ### Ağı Başlatma ve Uygulamayı Çalıştırma
 
-
-
 1. `cbps-network` dizinine geçiş yapın:
 
 ```bash
-cd ../../cbps-network
+cd cbps-network
 ```
 
 2. Ağı başlatmak ve kanal oluşturmak için aşağıdaki komutu çalıştırın:
@@ -68,8 +64,6 @@ cd explorer
 3. Docker konteynerlerini başlatmak için aşağıdaki komutu çalıştırın:
 
 ```bash
-
-
 docker-compose up
 ```
 
@@ -117,6 +111,7 @@ cd ../crossBorderPayment/application
 
 ```bash
 rm -rf wallet
+
+
 rm -rf node-modules
 ```
-
