@@ -11,8 +11,8 @@ This project is a blockchain application developed on the Hyperledger framework.
 To run this project in a local development environment, you can follow the steps below:
 
 Requirements:
-   - Docker installed
-   - Node.js and npm installed
+   - Docker
+   - Nodejs 
 
 ### Terminal Commands
 
