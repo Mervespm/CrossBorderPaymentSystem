@@ -81,6 +81,9 @@ cd explorer
 docker-compose up
 ```
 
+![Explorer](images/Exploerer_mainpage.png)
+
+
 4. If there are no errors, the explorer interface will be accessible at `http://localhost:8080`.
 
 ### Stop and Clear Network
